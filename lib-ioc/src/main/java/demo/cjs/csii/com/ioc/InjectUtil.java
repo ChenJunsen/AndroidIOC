@@ -28,6 +28,10 @@ import demo.cjs.csii.com.ioc.annotation.Event;
  * @version 1.0
  */
 public class InjectUtil {
+    /**
+     * 执行注解器(Activity专用)
+     * @param activity 宿主Activity
+     */
     public static void inject(Activity activity) {
         L.d("------------prepare inject--------------");
         if (activity == null) {
@@ -38,7 +42,7 @@ public class InjectUtil {
         }
         injectContentViewId(activity);
         injectFindViewById(activity);
-        injectOnClickListener(activity);
+        injectOnClickListener(activity, activity);
         L.d("------------inject finished--------------");
     }
 
@@ -167,6 +171,11 @@ public class InjectUtil {
         }
     }
 
+    /**
+     * 执行注解器(非Activity)
+     * @param parent
+     * @param contentView
+     */
     public static void inject(Object parent, View contentView) {
         if (parent != null) {
             if (contentView == null) {
@@ -185,7 +194,7 @@ public class InjectUtil {
         }
     }
 
-    private static void injectFindViewById(Object parent, View contentView) {
+    private static void injectFindViewById(Object parent, Object contentView) {
         Class<?> clazzF = parent.getClass();
         Field[] fields = clazzF.getDeclaredFields();
         if (fields != null && fields.length > 0) {
@@ -196,8 +205,7 @@ public class InjectUtil {
                 if (bindViewAnnotation != null) {
                     int id = bindViewAnnotation.value();
                     try {
-                        Class<? extends View> clazz = contentView.getClass();
-                        Method method = clazz.getMethod(Constant.Methods.FIND_VIEW_BY_ID, int.class);
+                        Method method = contentView.getClass().getMethod(Constant.Methods.FIND_VIEW_BY_ID, int.class);
                         Object view = method.invoke(contentView, id);
                         field.set(parent, view);
                     } catch (Exception e) {
@@ -209,7 +217,12 @@ public class InjectUtil {
         }
     }
 
-    private static void injectOnClickListener(Object parent, View contentView) {
+    /**
+     * 反射注入单击和长按事件的监听
+     * @param parent
+     * @param contentView
+     */
+    private static void injectOnClickListener(Object parent, Object contentView) {
         L.d("3.start injectOnClickListener");
         Class<?> clazz = parent.getClass();
         //考虑到反射的性能问题，这里采用的是getDeclaredMethods而不是getMethods方法。后者会获取除自身内部定义的方法外，还会获取继承的类的方法。而前者只会获取自身方法，方法数量大大减少，增加效率
@@ -247,7 +260,9 @@ public class InjectUtil {
                                     }
                                     Object proxy = Proxy.newProxyInstance(clickEventClass.getClassLoader(), new Class<?>[]{clickEventClass}, handler);
                                     for (int id : ids) {
-                                        View v = contentView.findViewById(id);
+                                        Method contentFindMethod = contentView.getClass().getMethod(Constant.Methods.FIND_VIEW_BY_ID, int.class);
+                                        Object v = contentFindMethod.invoke(contentView, id);
+//                                        View v = contentView.findViewById(id);
                                         if (v != null) {
                                             Method vMethod = v.getClass().getMethod(clickSetter, clickEventClass);
                                             vMethod.invoke(v, proxy);
@@ -274,7 +289,7 @@ public class InjectUtil {
     /**
      * 运行注解器(Fragment专用，确保使用该方法时，{@link Fragment#onCreateView(LayoutInflater, ViewGroup, Bundle)}已经成功返回contentView,建议在{@link Fragment#onViewCreated(View, Bundle)}中使用)
      *
-     * @param fragment
+     * @param fragment 宿主Fragment
      */
     public static void inject(Fragment fragment) {
         inject(fragment, null);
