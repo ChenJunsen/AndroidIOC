@@ -1,4 +1,4 @@
-package demo.cjs.csii.com.androidioc;
+package demo.cjs.third.com.androidioc;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -9,11 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import demo.cjs.csii.com.ioc.InjectUtil;
-import demo.cjs.csii.com.ioc.annotation.BindView;
-import demo.cjs.csii.com.ioc.annotation.ClickEvent;
-import demo.cjs.csii.com.ioc.annotation.ContentViewId;
-import demo.cjs.csii.com.ioc.annotation.LongClickEvent;
+import demo.cjs.third.com.ioc.InjectUtil;
+import demo.cjs.third.com.ioc.annotation.BindView;
+import demo.cjs.third.com.ioc.annotation.ClickEvent;
+import demo.cjs.third.com.ioc.annotation.ContentViewId;
+import demo.cjs.third.com.ioc.annotation.LongClickEvent;
 
 @ContentViewId(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {

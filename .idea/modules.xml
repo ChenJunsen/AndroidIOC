@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidIOC.iml" filepath="$PROJECT_DIR$/AndroidIOC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lib-ioc/lib-ioc.iml" filepath="$PROJECT_DIR$/lib-ioc/lib-ioc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidIOC.iml" filepath="$PROJECT_DIR$/AndroidIOC.iml" group="AndroidIOC" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="AndroidIOC/app" />
+      <module fileurl="file://$PROJECT_DIR$/lib-ioc/lib-ioc.iml" filepath="$PROJECT_DIR$/lib-ioc/lib-ioc.iml" group="AndroidIOC/lib-ioc" />
     </modules>
   </component>
 </project>

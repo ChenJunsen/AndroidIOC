@@ -1,4 +1,4 @@
-package demo.cjs.csii.com.ioc;
+package demo.cjs.third.com.ioc;
 
 /**
  * 描述:常量类

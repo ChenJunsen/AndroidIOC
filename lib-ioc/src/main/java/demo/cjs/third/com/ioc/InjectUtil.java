@@ -1,4 +1,4 @@
-package demo.cjs.csii.com.ioc;
+package demo.cjs.third.com.ioc;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,9 +14,9 @@ import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
 
-import demo.cjs.csii.com.ioc.annotation.BindView;
-import demo.cjs.csii.com.ioc.annotation.ContentViewId;
-import demo.cjs.csii.com.ioc.annotation.Event;
+import demo.cjs.third.com.ioc.annotation.BindView;
+import demo.cjs.third.com.ioc.annotation.ContentViewId;
+import demo.cjs.third.com.ioc.annotation.Event;
 
 /**
  * 描述:注解器工具

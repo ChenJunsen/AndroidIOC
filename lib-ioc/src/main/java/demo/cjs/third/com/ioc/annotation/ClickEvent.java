@@ -1,4 +1,4 @@
-package demo.cjs.csii.com.ioc.annotation;
+package demo.cjs.third.com.ioc.annotation;
 
 import android.support.annotation.IdRes;
 import android.view.View;
@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import demo.cjs.csii.com.ioc.Constant;
+import demo.cjs.third.com.ioc.Constant;
 
 /**
  * 描述:单击事件注解器

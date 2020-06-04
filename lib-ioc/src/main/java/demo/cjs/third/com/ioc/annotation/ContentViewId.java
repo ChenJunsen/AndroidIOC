@@ -1,4 +1,4 @@
-package demo.cjs.csii.com.ioc.annotation;
+package demo.cjs.third.com.ioc.annotation;
 
 import android.support.annotation.LayoutRes;
 

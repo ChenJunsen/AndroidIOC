@@ -1,4 +1,4 @@
-package demo.cjs.csii.com.androidioc;
+package demo.cjs.third.com.androidioc;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import demo.cjs.csii.com.ioc.InjectUtil;
-import demo.cjs.csii.com.ioc.annotation.BindView;
-import demo.cjs.csii.com.ioc.annotation.ClickEvent;
+import demo.cjs.third.com.ioc.InjectUtil;
+import demo.cjs.third.com.ioc.annotation.BindView;
+import demo.cjs.third.com.ioc.annotation.ClickEvent;
 
 /**
  * 描述:
